@@ -11,7 +11,7 @@ from gradcam import *
 
 
 print("let's start")
-path1 = "/data/neuroretinal/Combined"
+path1 = "./Combined"
 tfms = get_transforms(do_flip=False,flip_vert=True)
 print("getting databunch")
 data = ImageDataBunch.from_folder(path1, ds_tfms=tfms, size=224)
@@ -19,10 +19,10 @@ data.normalize()
 print("got databunch")
 
 learn = cnn_learner(data, models.resnet50, metrics=accuracy)
-learn.load("/data/neuroretinal/Combined/models/biop-fovnew", strict=False, remove_module=True)
+learn.load("./model", strict=False, remove_module=True)
 print(data.classes)
 
-test_img = '/home/g/gv53/tmp/test.jpg'
+test_img = './test.jpg'
 img = open_image(test_img)
 
 gcam = GradCam.from_one_img(learn,img)
