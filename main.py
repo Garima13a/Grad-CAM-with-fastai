@@ -27,11 +27,7 @@ img = open_image(test_img)
 
 gcam = GradCam.from_one_img(learn,img)
 gcam.plot()
-# plt.imshow(gcam)
-# plt.savefig('/home/g/gv53/tmp/cam.jpg')
-
 print('done')
 
 
 
-# /home/garima/Desktop/UoL_Projects/6_class_classification/dataset/Combined/train/Normal/
